@@ -1,0 +1,2 @@
+Log: jdkAcceptable: TRUE
+woof!
