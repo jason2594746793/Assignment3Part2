@@ -75,6 +75,7 @@ public class InformationDocument<T extends FrequencyDocument> {
      * @return
      */
     public List<FrequencyWord> getTopNFrequencyWords(int n, SortingOrder so) {
+/*
         List<FrequencyWord> topNWords = new ArrayList<>();
         Map<String, FrequencyWord> words = new HashMap<>();
         List<String> sortedWords = new ArrayList<>(words.keySet());
@@ -106,6 +107,28 @@ public class InformationDocument<T extends FrequencyDocument> {
         // Add top n words to the list
         for (int i = 0; i < n && i < sortedWords.size(); i++) {
             topNWords.add(words.get(sortedWords.get(i)));
+        }
+
+        return topNWords;
+*/
+        List<FrequencyWord> topNWords = new ArrayList<>();
+        Map<String, FrequencyWord> words = new HashMap<>();
+
+        // clone the map of words from the document
+        for (FrequencyWord fw : doc.words.values()) {
+            words.put(fw.getNormalised(), fw);
+        }
+
+        // Sort the map by frequency
+        Map<String, FrequencyWord> sortedWords = sortByValue(words, so);
+
+        // Add top n words to the list
+        for (String word : sortedWords.keySet()) {
+            if (topNWords.size() < n) {
+                topNWords.add(sortedWords.get(word));
+            } else {
+                break;
+            }
         }
 
         return topNWords;
