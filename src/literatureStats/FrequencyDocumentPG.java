@@ -28,7 +28,7 @@ public class FrequencyDocumentPG extends FrequencyDocument {
      */
     public FrequencyDocumentPG(String filename) {
         this.initialise(new FrequencyReaderConfig(filename, PG_DOCUMENT_START, PG_DOCUMENT_STOP,
-                FrequencyReaderConfig.DEFAULT_VERBOSITY));
+                Verbosity.MAXIMUM));
         this.readDocument();
     }
 
@@ -42,7 +42,7 @@ public class FrequencyDocumentPG extends FrequencyDocument {
      */
     public FrequencyDocumentPG(String filename, String nonWordChars) {
         this.initialise(new FrequencyReaderConfig(filename, PG_DOCUMENT_START, PG_DOCUMENT_STOP,
-                FrequencyReaderConfig.DEFAULT_VERBOSITY), nonWordChars);
+                Verbosity.MAXIMUM), nonWordChars);
         this.readDocument();
     }
 
@@ -80,7 +80,7 @@ public class FrequencyDocumentPG extends FrequencyDocument {
     @Override
     public void initialise(String filename) {
         this.initialise(new FrequencyReaderConfig(filename, PG_DOCUMENT_START, PG_DOCUMENT_STOP,
-                FrequencyReaderConfig.DEFAULT_VERBOSITY), FrequencyDocumentReader.DEFAULT_NON_WORD_CHARS);
+                Verbosity.MAXIMUM), FrequencyDocumentReader.DEFAULT_NON_WORD_CHARS);
     }
 
     /**
@@ -94,6 +94,6 @@ public class FrequencyDocumentPG extends FrequencyDocument {
     @Override
     public void initialise(String filename, String nonWordChars) {
         this.initialise(new FrequencyReaderConfig(filename, PG_DOCUMENT_START, PG_DOCUMENT_STOP,
-                FrequencyReaderConfig.DEFAULT_VERBOSITY), nonWordChars);
+                Verbosity.MAXIMUM), nonWordChars);
     }
 }

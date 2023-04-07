@@ -76,6 +76,10 @@ public class FrequencyDocumentReader {
             while (sc.hasNextLine()) {
                 String line = sc.nextLine();
 
+                if (config.START_MARKER == null && config.STOP_MARKER == null) {
+                    started = true;
+                }
+
                 if (config.START_MARKER != null && line.contains(config.START_MARKER)) {
                     started = true;
                 }
@@ -88,16 +92,19 @@ public class FrequencyDocumentReader {
                 if (started) {
                     String[] words = normalise(line.replaceAll(nonWordChars, "")).split("\\s+");
                     for (String word : words) {
+                        if (word.isBlank()) {
+                            continue;
+                        }
                         if (!result.containsKey(word)) {
                             result.put(word, new FrequencyWord(word));
                             if (config.getVerbosity() != Verbosity.SILENT) {
-                                System.out.printf("Added " + word);
+                                System.out.println("Added " + word);
                             }
                         } else {
                             FrequencyWord count = result.get(word);
                             count.incrementCount();
                             if (config.getVerbosity() != Verbosity.SILENT) {
-                                System.out.printf("Incremented " + word + "to" + count.getCount());
+                                System.out.println("Incremented " + word + " to " + count.getCount());
                             }
 
                         }

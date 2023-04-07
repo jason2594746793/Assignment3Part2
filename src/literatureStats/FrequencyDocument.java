@@ -108,7 +108,7 @@ public class FrequencyDocument {
      * @param filename
      */
     public void initialise(String filename) {
-        this.initialise(new FrequencyReaderConfig(filename, null, null, Verbosity.SILENT)
+        this.initialise(new FrequencyReaderConfig(filename, null, null, Verbosity.MAXIMUM)
                 , FrequencyDocumentReader.DEFAULT_NON_WORD_CHARS);
 
     }
@@ -137,7 +137,6 @@ public class FrequencyDocument {
     public void initialise(FrequencyReaderConfig config, String nonWordChars) {
         setConfig(config);
         setNonWordChars(nonWordChars);
-        this.readDocument();
     }
 
     /**
@@ -213,5 +212,12 @@ public class FrequencyDocument {
         for (String word : getStatsNormalisedWords(pattern)) {
             System.out.println(word);
         }
+    }
+
+    public static void main(String[] args) {
+        FrequencyDocument fd = new FrequencyDocument();
+        fd.initialise("input/07-putting-it-all-together.txt");
+        fd.readDocument();
+        fd.printStatsNormalisedWords(FrequencyWord.DEFAULT_WORD_STATS_PATTERN);
     }
 }
