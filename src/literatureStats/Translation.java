@@ -8,16 +8,20 @@ import java.util.Set;
  * Code to translate words according to the language is directly inside this enum.
  */
 public enum Translation {
-    NONE {@Override public String translate(String word) {
-        return word;
-    }
+    NONE {
+        @Override
+        public String translate(String word) {
+            return word;
+        }
     },
 
     // Done: put the code for translating troll directly inside the overriden method
-    TROLL {@Override public String translate(String word) {
-        word = "grunt";
-        return word;
-    }
+    TROLL {
+        @Override
+        public String translate(String word) {
+            word = "grunt";
+            return word;
+        }
     },
 
     /* DONE: translate into British doggie speak. Dogs from different countries
@@ -99,9 +103,4 @@ public enum Translation {
      */
     public abstract String translate(String word);
 
-    public static void main(String[] args) {
-        Translation trans = Translation.DOG;
-        FrequencyWord test = new FrequencyWord("under");
-        System.out.println(trans.translate(test));
-    }
 }

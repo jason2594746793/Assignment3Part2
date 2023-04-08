@@ -31,9 +31,9 @@ public class FrequencyWord implements Comparable<FrequencyWord> {
 
     /**
      * DONE: normalise means a word is entirely lowercase and
-     *  has no leading or trailing whitespace.
+     * has no leading or trailing whitespace.
      * <p>
-     *  Note this returns a normalised form of the parameter.
+     * Note this returns a normalised form of the parameter.
      *
      * @param word the String to be normalised
      * @return
@@ -41,6 +41,7 @@ public class FrequencyWord implements Comparable<FrequencyWord> {
     public static String normalise(String word) {
         return word.toLowerCase().strip();
     }
+
     /**
      * DONE: getter for the normalised form of the current word.
      *
@@ -69,7 +70,7 @@ public class FrequencyWord implements Comparable<FrequencyWord> {
 
     /**
      * DONE: gets a String of this object's data (frequency and normalised word-form)
-     *  formatted according to the default word statistics pattern.
+     * formatted according to the default word statistics pattern.
      *
      * @return
      */
@@ -80,7 +81,7 @@ public class FrequencyWord implements Comparable<FrequencyWord> {
 
     /**
      * DONE: gets a String of this object's data (frequency and normalised word-form)
-     *  formatted according to the provided word statistics pattern.
+     * formatted according to the provided word statistics pattern.
      *
      * @param wordStatePattern
      * @return
@@ -91,7 +92,7 @@ public class FrequencyWord implements Comparable<FrequencyWord> {
 
     /**
      * DONE: A FrequencyWord knows how to compare itself with another FrequencyWord.
-     *  You will have to research how this is done. Compare frequencies.
+     * You will have to research how this is done. Compare frequencies.
      *
      * @param other the object to be compared.
      * @return

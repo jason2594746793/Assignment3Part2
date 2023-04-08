@@ -3,6 +3,7 @@ package literatureStats;
 import java.util.Map;
 
 // updated comment to explain how to use the object properly
+
 /**
  * A FrequencyDocument stores all the words and their words of an entire single
  * document or file.
@@ -32,8 +33,8 @@ public class FrequencyDocument {
      * initialise() methods before you can use the object safely.
      */
     public FrequencyDocument() {
-        this.words        = null; // 01/04/2023 reordered to match declarations
-        this.config       = null;
+        this.words = null; // 01/04/2023 reordered to match declarations
+        this.config = null;
         // this.filename     = null; // 01/04/2023 updated: removed as it was redundant
         this.nonWordChars = null; // 01/04/2023 updated: added for consistency
     }
@@ -50,7 +51,7 @@ public class FrequencyDocument {
 
     /**
      * DONE: constructor for filename and a pattern specifying characters
-     *  that are not allowed in words.
+     * that are not allowed in words.
      *
      * @param filename
      * @param nonWordChars
@@ -72,7 +73,7 @@ public class FrequencyDocument {
 
     /**
      * DONE: constructor using a configuration object and a pattern
-     *  specifying characters that are not allowed in words.
+     * specifying characters that are not allowed in words.
      *
      * @param config
      * @param nonWordChars
@@ -103,7 +104,7 @@ public class FrequencyDocument {
 
     /**
      * DONE: initialise based on the filename to read. You must provide
-     *  default values for any that are not provided.
+     * default values for any that are not provided.
      *
      * @param filename
      */
@@ -115,8 +116,8 @@ public class FrequencyDocument {
 
     /**
      * DONE: initialise based on the filename to read and a pattern
-     *  specifying characters that are not allowed in words. You must provide
-     *   default values for any that are not provided.
+     * specifying characters that are not allowed in words. You must provide
+     * default values for any that are not provided.
      *
      * @param filename
      * @param nonWordChars
@@ -128,8 +129,8 @@ public class FrequencyDocument {
 
     /**
      * DONE: initialise based on a configuration and a pattern specifying characters
-     *  that are not allowed in words. This version of initialise() needs the
-     *  full set of information provided.
+     * that are not allowed in words. This version of initialise() needs the
+     * full set of information provided.
      *
      * @param config
      * @param nonWordChars
@@ -159,18 +160,18 @@ public class FrequencyDocument {
 
     /**
      * DONE: readDocument() calls the helper class's method to read a file.
-     *  In the method here, it may be necessary to convert the data structure
-     *  returned into the one used in this class.
+     * In the method here, it may be necessary to convert the data structure
+     * returned into the one used in this class.
      */
     public void readDocument() {
-        if(this.nonWordChars != null && this.config != null) {
+        if (this.nonWordChars != null && this.config != null) {
             this.words = FrequencyDocumentReader.readDocument(this.config, this.nonWordChars);
         }
     }
 
     /**
      * DONE: getStatsNormalisedWords() returns the statistics of normalised words
-     *  with the String in the default format provided by the FrequencyWord class.
+     * with the String in the default format provided by the FrequencyWord class.
      *
      * @return
      */
@@ -180,7 +181,7 @@ public class FrequencyDocument {
 
     /**
      * DONE: getStatsNormalisedWords() returns the statistics of normalised words
-     *  with the String in the format provided by the parameter.
+     * with the String in the format provided by the parameter.
      *
      * @param pattern
      * @return
@@ -196,7 +197,7 @@ public class FrequencyDocument {
 
     /**
      * DONE: printStatsNormalisedWords() prints the statistics of normalised words
-     *  with the String in the default format provided by the FrequencyWord class.
+     * with the String in the default format provided by the FrequencyWord class.
      */
     public void printStatsNormalisedWords() {
         printStatsNormalisedWords(FrequencyWord.DEFAULT_WORD_STATS_PATTERN);
@@ -204,7 +205,7 @@ public class FrequencyDocument {
 
     /**
      * DONE: printStatsNormalisedWords() prints the statistics of normalised words
-     *  with the String in the format provided by the parameter.
+     * with the String in the format provided by the parameter.
      *
      * @param pattern
      */

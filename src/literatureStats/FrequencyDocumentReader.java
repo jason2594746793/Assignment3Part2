@@ -1,5 +1,7 @@
 package literatureStats;
 
+import a3algorithms.Normaliser;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Map;
@@ -54,15 +56,15 @@ public class FrequencyDocumentReader {
 
     /**
      * DONE read the file specified in the configuration and obey the
-     *   start and stop markers.
-     *   If the configuration has a non-zero verbosity then print the following messages:
-     *   if the word is new:
-     *   Added normalisedWord
-     *   if the word already exists:
-     *   Incremented normalisedWord to newCount
-     *   In both cases substitute normalisedWord with the actual normalised form.
-     *   If a word already exists print the count that includes the instance you
-     *   are processing.
+     * start and stop markers.
+     * If the configuration has a non-zero verbosity then print the following messages:
+     * if the word is new:
+     * Added normalisedWord
+     * if the word already exists:
+     * Incremented normalisedWord to newCount
+     * In both cases substitute normalisedWord with the actual normalised form.
+     * If a word already exists print the count that includes the instance you
+     * are processing.
      *
      * @param config
      * @param nonWordChars
@@ -76,21 +78,19 @@ public class FrequencyDocumentReader {
             while (sc.hasNextLine()) {
                 String line = sc.nextLine();
 
-                if (config.START_MARKER == null && config.STOP_MARKER == null) {
-                    started = true;
-                }
+                // if not started, check if we should start
+                if (started == false) {
+                    if (config.START_MARKER != null && line.contains(config.START_MARKER)) {
+                        started = true;
+                    }
+                } else {
+                    if (config.STOP_MARKER != null && line.contains(config.STOP_MARKER)) {
+                        break;
+                    }
+                    // replace all non-word characters with a space
+                    line = normalise(line.replaceAll(nonWordChars, "").toLowerCase());
+                    String[] words = line.split("\\s+");
 
-                if (config.START_MARKER != null && line.contains(config.START_MARKER)) {
-                    started = true;
-                }
-
-                if (config.STOP_MARKER != null && line.contains(config.STOP_MARKER)) {
-                    started = false;
-                    continue;
-                }
-
-                if (started) {
-                    String[] words = normalise(line.replaceAll(nonWordChars, "")).split("\\s+");
                     for (String word : words) {
                         if (word.isBlank()) {
                             continue;

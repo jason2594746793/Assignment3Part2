@@ -18,7 +18,7 @@ public class Runner {
             String.format("[%s]:\t", PROGRAM_NAME);
 
     public static final String PRELIMINARY_OK_MSG = "Preliminary checks passed";
-    public static final String EXTRA_OK_MSG       = "Extra checks passed";
+    public static final String EXTRA_OK_MSG = "Extra checks passed";
 
     public static final int JDK_MINIMUM = 11;
 
@@ -57,16 +57,16 @@ public class Runner {
     }
 
     private static void log(boolean ok) {
-        if ( VERBOSE.isVerbose() ) {
+        if (VERBOSE.isVerbose()) {
             System.out.printf("%s%s()\t%S%n", LOG_PREFIX,
-                              getCallingMethodName(), ok);
+                    getCallingMethodName(), ok);
         }
     }
 
     private static void log(String message) {
-        if ( VERBOSE.isVerbose() ) {
+        if (VERBOSE.isVerbose()) {
             System.out.printf("%s%s()\t%s%n", LOG_PREFIX,
-                              getCallingMethodName(), message);
+                    getCallingMethodName(), message);
         }
     }
 
@@ -78,7 +78,7 @@ public class Runner {
      */
     private static int getJavaVersion() {
         return Integer.parseInt(System.getProperty("java.version")
-                                      .split("\\.")[0]); // 01/04/2023 updated to capture the first part
+                .split("\\.")[0]); // 01/04/2023 updated to capture the first part
     }
 
     private static boolean jdkAcceptable() {
@@ -90,7 +90,7 @@ public class Runner {
 
     /**
      * DONE: the number of command-line arguments must be acceptable.
-     *   Acceptable is measured against the required minimum number of arguments.
+     * Acceptable is measured against the required minimum number of arguments.
      *
      * @param args
      * @return
@@ -114,9 +114,11 @@ public class Runner {
     private static boolean fileOK(String filename) {
         log(String.format("checking file \"%s\"", filename));
         boolean ok;
-        try ( final FileInputStream fis = new FileInputStream(filename) ) {
+        try (final FileInputStream fis = new FileInputStream(filename)) {
             ok = fis.read() != -1; // check file is not empty by reading something
-        } catch ( IOException e ) {ok = false;}
+        } catch (IOException e) {
+            ok = false;
+        }
 
         log(ok);
         return ok;
@@ -131,8 +133,8 @@ public class Runner {
     private static boolean filesOK(String[] filelist) {
         log(String.format("checking files %s", Arrays.asList(filelist)));
         boolean allfilesOK = true;
-        for(String file : filelist){
-            if(!fileOK(file)){
+        for (String file : filelist) {
+            if (!fileOK(file)) {
                 return false;
             }
         }
@@ -148,9 +150,9 @@ public class Runner {
     public static void main(String[] clArgs) {
         args = clArgs;
 
-        if ( PRELIMINARY_CHECKS_PASSED ) {
+        if (PRELIMINARY_CHECKS_PASSED) {
             log(PRELIMINARY_OK_MSG);
-            if ( extraChecksPassed() ) {
+            if (extraChecksPassed()) {
                 log(EXTRA_OK_MSG);
                 DataScientist experimenter = new DataScientist();
                 experimenter.runExperiment1(args);

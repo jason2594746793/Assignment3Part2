@@ -8,7 +8,7 @@ public class FrequencyReaderConfig {
     public final String DOCUMENT_FILENAME;
 
     /**
-     *  null is the default for empty markers: DO NOT CHANGE THIS.
+     * null is the default for empty markers: DO NOT CHANGE THIS.
      */
 
     public final static String EMPTY_MARKER = null;
@@ -27,15 +27,15 @@ public class FrequencyReaderConfig {
 
         // 01/04/2023 updated ordering to match the parameter sequence
         this.DOCUMENT_FILENAME = dictionaryFilename;
-        this.START_MARKER      = startMarker;
-        this.STOP_MARKER       = stopMarker;
-        this.verbosity         = verbosity;
+        this.START_MARKER = startMarker;
+        this.STOP_MARKER = stopMarker;
+        this.verbosity = verbosity;
     }
 
     /**
      * DONE: get the verbosity for the current configuration.
      *
-      * @return
+     * @return
      */
     public Verbosity getVerbosity() {
         return this.verbosity;
@@ -43,6 +43,7 @@ public class FrequencyReaderConfig {
 
     /**
      * DONE: set the verbosity for the current configuration.
+     *
      * @param verbosity
      */
     public void setVerbosity(Verbosity verbosity) {

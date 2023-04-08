@@ -1,4 +1,5 @@
 package literatureStats;
+
 /**
  * A FrequencyDocumentPG stores all the words and their words of a
  * Project Gutenberg ebook. This means it only stores the words of the actual
@@ -9,12 +10,12 @@ package literatureStats;
 public class FrequencyDocumentPG extends FrequencyDocument {
     public static final String PG_DOCUMENT_START =
             "*** START OF THE PROJECT GUTENBERG EBOOK";
-    public static final String PG_DOCUMENT_STOP  =
+    public static final String PG_DOCUMENT_STOP =
             "*** END OF THE PROJECT GUTENBERG EBOOK";
 
     /**
      * DONE: default constructor is the parent's constructor. This should be a
-     *  one-liner.
+     * one-liner.
      */
     public FrequencyDocumentPG() {
         super();
@@ -22,7 +23,7 @@ public class FrequencyDocumentPG extends FrequencyDocument {
 
     /**
      * DONE: constructor based on a filename. Use the defaults for information
-     *  not provided.
+     * not provided.
      *
      * @param filename
      */
@@ -34,8 +35,8 @@ public class FrequencyDocumentPG extends FrequencyDocument {
 
     /**
      * DONE: constructor for filename and a pattern specifying characters
-     *  that are not allowed in words. Use the defaults for information not
-     *  provided.
+     * that are not allowed in words. Use the defaults for information not
+     * provided.
      *
      * @param filename
      * @param nonWordChars
@@ -48,7 +49,7 @@ public class FrequencyDocumentPG extends FrequencyDocument {
 
     /**
      * DONE: constructor using a configuration object. Use the defaults for
-     *  information not provided.
+     * information not provided.
      *
      * @param config
      */
@@ -59,8 +60,8 @@ public class FrequencyDocumentPG extends FrequencyDocument {
 
     /**
      * DONE: constructor using a configuration object and a pattern
-     *  specifying characters that are not allowed in words. This version
-     *  is provided with all the information it needs and should be a one-liner.
+     * specifying characters that are not allowed in words. This version
+     * is provided with all the information it needs and should be a one-liner.
      *
      * @param config
      * @param nonWordChars
@@ -73,7 +74,7 @@ public class FrequencyDocumentPG extends FrequencyDocument {
 
     /**
      * DONE: Initialise based on a filename. Use the defaults for information
-     *  not provided.
+     * not provided.
      *
      * @param filename
      */
@@ -85,8 +86,8 @@ public class FrequencyDocumentPG extends FrequencyDocument {
 
     /**
      * DONE: constructor using a filename and a pattern specifying characters
-     *  that are not allowed in words. Use the defaults for information not
-     *  provided.
+     * that are not allowed in words. Use the defaults for information not
+     * provided.
      *
      * @param filename
      * @param nonWordChars

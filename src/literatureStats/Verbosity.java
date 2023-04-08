@@ -10,7 +10,7 @@ public enum Verbosity {
 
     /**
      * Done: constructor
-     *  Ensure the class field is initialised.
+     * Ensure the class field is initialised.
      *
      * @param verbosityLevel
      */
@@ -20,7 +20,7 @@ public enum Verbosity {
 
     /**
      * Done: getVerbosityLevel():
-     *  Returns the verbosity of the current enum value.
+     * Returns the verbosity of the current enum value.
      *
      * @return
      */
@@ -30,10 +30,11 @@ public enum Verbosity {
 
     /**
      * Done: isVerbose():
-     *   It is not verbose if the number is 0 or lower.
+     * It is not verbose if the number is 0 or lower.
+     *
      * @return
      */
     public boolean isVerbose() {
-        return verbosityLevel >= 1;
+        return verbosityLevel > 0;
     }
 }

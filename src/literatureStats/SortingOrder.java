@@ -11,9 +11,9 @@ public enum SortingOrder {
 
     /**
      * Done: constructor.
-     *  Ensure the class variable is initialised.
+     * Ensure the class variable is initialised.
      *
-     *  @param reversed
+     * @param reversed
      */
     SortingOrder(boolean reversed) {
         this.reversed = reversed;
