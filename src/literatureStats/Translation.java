@@ -58,30 +58,37 @@ public enum Translation {
             Set<String> vowels = new HashSet<>(Arrays.asList("a", "e", "i", "o", "u"));
             String nonVowelCluster = "";
             //loop over the word to get the nonVowelCluster
-            for (int i = 0; i < word.length(); i++) {
-                if (!vowels.contains(word.substring(i, i + 1))) {
-                    nonVowelCluster += word.substring(i, i + 1);
-                } else {
-                    break;
+            if (word == null || word.isEmpty()) {
+                return "";
+            }else {
+                for (int i = 0; i < word.length(); i++) {
+                    char currentChar = word.charAt(i);
+
+                    if (!vowels.contains(currentChar)) {
+                        nonVowelCluster += currentChar;
+                    } else {
+                        break;
+                    }
                 }
-            }
-            //if the word starts with b, g, r, or w, do the special cases
-            if (word.startsWith("b")) {
-                result = word.substring(nonVowelCluster.length()) + "ark";
-            } else if (word.startsWith("g")) {
-                result = word.substring(nonVowelCluster.length()) + "rrrowl";
-            } else if (word.startsWith("r")) {
-                result = word.substring(nonVowelCluster.length()) + "rruf";
-            } else if (word.startsWith("w")) {
-                if (word.startsWith("wo")) {
-                    result = word.substring(nonVowelCluster.length()) + "oofWoof";
+                //if the word starts with b, g, r, or w, do the special cases
+                if (word.startsWith("b")) {
+                    result = word.substring(nonVowelCluster.length()) + "ark";
+                } else if (word.startsWith("g")) {
+                    result = word.substring(nonVowelCluster.length()) + "rrrowl";
+                } else if (word.startsWith("r")) {
+                    result = word.substring(nonVowelCluster.length()) + "rruf";
+                } else if (word.startsWith("w")) {
+                    if (word.startsWith("wo")) {
+                        result = word.substring(nonVowelCluster.length()) + "oofWoof";
+                    } else {
+                        result = word.substring(nonVowelCluster.length()) + "oof";
+                    }
                 } else {
-                    result = word.substring(nonVowelCluster.length()) + "oof";
+                    result = word.substring(nonVowelCluster.length()) + nonVowelCluster + "ay";
                 }
-            } else {
-                result = word.substring(nonVowelCluster.length()) + nonVowelCluster + "ay";
+                return result;
             }
-            return result;
+
         }
     };
 
