@@ -60,31 +60,37 @@ public enum Translation {
             //loop over the word to get the nonVowelCluster
             if (word == null || word.isEmpty()) {
                 return "";
-            }else {
+            } else {
                 for (int i = 0; i < word.length(); i++) {
                     char currentChar = word.charAt(i);
 
-                    if (!vowels.contains(currentChar)) {
+                    if (!vowels.contains(String.valueOf(Character.toLowerCase(currentChar)))) {
                         nonVowelCluster += currentChar;
                     } else {
                         break;
                     }
                 }
                 //if the word starts with b, g, r, or w, do the special cases
-                if (word.startsWith("b")) {
-                    result = word.substring(nonVowelCluster.length()) + "ark";
-                } else if (word.startsWith("g")) {
-                    result = word.substring(nonVowelCluster.length()) + "rrrowl";
-                } else if (word.startsWith("r")) {
-                    result = word.substring(nonVowelCluster.length()) + "rruf";
-                } else if (word.startsWith("w")) {
-                    if (word.startsWith("wo")) {
-                        result = word.substring(nonVowelCluster.length()) + "oofWoof";
-                    } else {
-                        result = word.substring(nonVowelCluster.length()) + "oof";
-                    }
-                } else {
-                    result = word.substring(nonVowelCluster.length()) + nonVowelCluster + "ay";
+                char firstChar = word.charAt(0);
+                switch (Character.toLowerCase(firstChar)) {
+                    case 'b':
+                        result = word.substring(nonVowelCluster.length()) + nonVowelCluster + "bark";
+                        break;
+                    case 'g':
+                        result = word.substring(nonVowelCluster.length()) + nonVowelCluster + "rrrowl";
+                        break;
+                    case 'r':
+                        result = word.substring(nonVowelCluster.length()) + nonVowelCluster + "rruf";
+                        break;
+                    case 'w':
+                        if (word.length() >= 2 && Character.toLowerCase(word.charAt(1)) == 'o') {
+                            result = word.substring(nonVowelCluster.length()) + nonVowelCluster + "oofWoof";
+                        } else {
+                            result = word.substring(nonVowelCluster.length()) + nonVowelCluster + "oof";
+                        }
+                        break;
+                    default:
+                        result = word.substring(nonVowelCluster.length()) + nonVowelCluster + "ay";
                 }
                 return result;
             }
