@@ -57,22 +57,24 @@ public enum Translation {
             String result = "";
             Set<String> vowels = new HashSet<>(Arrays.asList("a", "e", "i", "o", "u"));
             String nonVowelCluster = "";
-            //loop over the word to get the nonVowelCluster
+
             if (word == null || word.isEmpty()) {
                 return "";
             } else {
+                //loop over the word to get the nonVowelCluster
                 for (int i = 0; i < word.length(); i++) {
                     char currentChar = word.charAt(i);
 
-                    if (!vowels.contains(String.valueOf(Character.toLowerCase(currentChar)))) {
+                    if (!vowels.contains(currentChar)) {
                         nonVowelCluster += currentChar;
                     } else {
                         break;
                     }
                 }
-                //if the word starts with b, g, r, or w, do the special cases
+
                 char firstChar = word.charAt(0);
-                switch (Character.toLowerCase(firstChar)) {
+                //if the word starts with b, g, r, or w, do the special cases
+                switch (firstChar) {
                     case 'b':
                         result = word.substring(nonVowelCluster.length()) + nonVowelCluster + "bark";
                         break;

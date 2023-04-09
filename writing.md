@@ -27,6 +27,7 @@
 | [Stack Overflow](https://stackoverflow.com/a/1419849)                                                     | - understanding Enums in Java, and when and why to use Enum classes.                                                                |
 | [Quora](https://qr.ae/prQyno)                                                                             | Understand the meaning of the reqex [^a-zA-Z0-9'\\s]+                                                                               |
 | [Youtube](https://www.youtube.com/watch?v=vZm0lHciFsQ&ab_channel=CodingwithJohn)                          | How to use JUnit testing in Intellij                                                                                                |
+| [w3school switch](https://www.w3schools.com/java/java_switch.asp)                                         | How to use switch statement in Java                                                                                                 |
 | [Youdao Translator](https://fanyi.youdao.com/index.html#/)                                                | - Translated parts of the instructions that I do not understand into Chinese <br/> - Corrected some grammar mistakes of my writting |
 | [Markdown Guide](https://www.markdownguide.org/extended-syntax/)                                          | Helped me to draw table using markdown format                                                                                       |
 
@@ -136,10 +137,11 @@ when it's no longer needed within a try-with-resources block.
 
 ## Explain your translate-to-dog implementation ##
 
-My algorithm takes a word and converts it into doggie language by first, finding
+My algorithm takes a word and converts it into doggie language by first make sure
+the word is not empty, then it finds
 the initial non-vowel characters in the word by compare each character to vowels.
 Then the algorithm checks if the word begin with any of the special letters,
-which are "b,g,r,w". If the word begin with any of these letters,
+which are "b,g,r,w(and wo)". If the word begin with any of these letters,
 the algorithm moves the non-vowel characters to the end and adds its special ending.
 If the word doesn't begin with those special letters, the algorithm  
 moves the non-vowel cluster to the end and adds "ay".
