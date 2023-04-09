@@ -1,12 +1,13 @@
 package a3algorithms;
 
 public enum SortingOrder {
+    // 01/04/2023 order and some values updated
     NORMAL(false),
-    NOT_REVERSED(false),
-    DESCENDING(false),
-    ASCENDING(true),
-    REVERSED(true);
-    final boolean reversed;// Done: you need to initialise this elsewhere.
+    DESCENDING(true),
+    ASCENDING(false),
+    REVERSED(true),
+    NOT_REVERSED(false);
+    final boolean reversed; // DONE: you need to initialise this elsewhere.
 
     /**
      * DONE: constructor.
@@ -19,7 +20,7 @@ public enum SortingOrder {
     }
 
     /**
-     * Done: isReversed() checks whether the named sort order is reversed
+     *DONE: isReversed() checks whether the named sort order is reversed
      *
      * @return
      */
