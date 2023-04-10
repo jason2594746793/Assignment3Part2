@@ -74,8 +74,7 @@ public class FrequencyDocumentPG extends FrequencyDocument {
      */
     @Override
     public void initialise(String filename) {
-        this.initialise(new FrequencyReaderConfig(filename, PG_DOCUMENT_START, PG_DOCUMENT_STOP,
-                Verbosity.MAXIMUM), FrequencyDocumentReader.DEFAULT_NON_WORD_CHARS);
+        this.initialise(filename, FrequencyDocumentReader.DEFAULT_NON_WORD_CHARS);
     }
 
     /**
@@ -88,7 +87,7 @@ public class FrequencyDocumentPG extends FrequencyDocument {
      */
     @Override
     public void initialise(String filename, String nonWordChars) {
-        this.initialise(new FrequencyReaderConfig(filename, PG_DOCUMENT_START, PG_DOCUMENT_STOP,
-                Verbosity.MAXIMUM), nonWordChars);
+        setConfig(new FrequencyReaderConfig(filename, PG_DOCUMENT_START, PG_DOCUMENT_STOP, FrequencyReaderConfig.DEFAULT_VERBOSITY));
+        setNonWordChars(nonWordChars);
     }
 }
