@@ -46,7 +46,6 @@ public class FrequencyDocument {
      */
     public FrequencyDocument(String filename) {
         this.initialise(filename);
-        this.readDocument();
     }
 
     /**
@@ -58,7 +57,6 @@ public class FrequencyDocument {
      */
     public FrequencyDocument(String filename, String nonWordChars) {
         this.initialise(filename, nonWordChars);
-        this.readDocument();
     }
 
     /**
@@ -68,7 +66,6 @@ public class FrequencyDocument {
      */
     public FrequencyDocument(FrequencyReaderConfig config) {
         this.initialise(config);
-        this.readDocument();
     }
 
     /**
@@ -81,7 +78,6 @@ public class FrequencyDocument {
     public FrequencyDocument(FrequencyReaderConfig config,
                              String nonWordChars) {
         this.initialise(config, nonWordChars);
-        this.readDocument();
     }
 
     /**
@@ -109,8 +105,7 @@ public class FrequencyDocument {
      * @param filename
      */
     public void initialise(String filename) {
-        this.initialise(new FrequencyReaderConfig(filename, null, null, Verbosity.MAXIMUM)
-                , FrequencyDocumentReader.DEFAULT_NON_WORD_CHARS);
+        this.initialise(filename, FrequencyDocumentReader.DEFAULT_NON_WORD_CHARS);
 
     }
 
@@ -123,8 +118,9 @@ public class FrequencyDocument {
      * @param nonWordChars
      */
     public void initialise(String filename, String nonWordChars) {
-        this.initialise(new FrequencyReaderConfig(filename, null, null, Verbosity.SILENT)
-                , nonWordChars);
+        setConfig(new FrequencyReaderConfig(filename, FrequencyReaderConfig.EMPTY_MARKER,
+                FrequencyReaderConfig.EMPTY_MARKER, FrequencyReaderConfig.DEFAULT_VERBOSITY));
+        setNonWordChars(nonWordChars);
     }
 
     /**
