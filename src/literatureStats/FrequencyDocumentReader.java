@@ -88,7 +88,7 @@ public class FrequencyDocumentReader {
                         break;
                     }
                     // replace all non-word characters with a space
-                    line = normalise(line.replaceAll(nonWordChars, "").toLowerCase());
+                    line = normalise(line.replaceAll(nonWordChars, " ").toLowerCase());
                     String[] words = line.split("\\s+");
 
                     for (String word : words) {
