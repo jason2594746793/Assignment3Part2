@@ -79,7 +79,10 @@ public class FrequencyDocumentReader {
                 String line = sc.nextLine();
 
                 // if not started, check if we should start
-                if (started == false) {
+                if (!started) {
+                    if (config.START_MARKER == null && config.STOP_MARKER == null) {
+                        started = true;
+                    }
                     if (config.START_MARKER != null && line.contains(config.START_MARKER)) {
                         started = true;
                     }
@@ -89,6 +92,7 @@ public class FrequencyDocumentReader {
                     }
                     // replace all non-word characters with a space
                     line = normalise(line.replaceAll(nonWordChars, " ").toLowerCase());
+
                     String[] words = line.split("\\s+");
 
                     for (String word : words) {
